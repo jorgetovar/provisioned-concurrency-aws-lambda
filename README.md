@@ -1,4 +1,4 @@
-# sam-lambda-pc
+# Provisioned Concurrency - AWS Lambda
 
 Congratulations, you have just created a Serverless "Hello World" application using the AWS Serverless Application Model (AWS SAM) for the `python3.10` runtime, and options to bootstrap it with [**Powertools for AWS Lambda (Python)**](https://awslabs.github.io/aws-lambda-powertools-python/latest/) (Powertools for AWS Lambda (Python)) utilities for Logging, Tracing and Metrics.
 
