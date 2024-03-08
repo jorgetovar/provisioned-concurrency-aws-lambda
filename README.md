@@ -19,7 +19,7 @@ Find the complete project's [documentation here](https://awslabs.github.io/aws-l
 With [pip](https://pip.pypa.io/en/latest/index.html) installed, run: 
 
 ```bash
-pip install aws-lambda-powertools
+pip3 install aws-lambda-powertools
 ```
 
 ### Powertools for AWS Lambda (Python) Examples
@@ -83,14 +83,14 @@ Test a single function by invoking it directly with a test event. An event is a 
 Run functions locally and invoke them with the `sam local invoke` command.
 
 ```bash
-sam-lambda-pc$ sam local invoke HelloWorldFunction --event events/event.json
+sam-lambda-pc$ sam local invoke HelloWorldFunction --event events/hello.json
 ```
 
 The SAM CLI can also emulate your application's API. Use the `sam local start-api` to run the API locally on port 3000.
 
 ```bash
 sam-lambda-pc$ sam local start-api
-sam-lambda-pc$ curl http://localhost:3000/
+sam-lambda-pc$ curl http://localhost:3000/hello
 ```
 
 The SAM CLI reads the application template to determine the API's routes and the functions that they invoke. The `Events` property on each function's definition includes the route and method for each path.
@@ -119,19 +119,6 @@ sam-lambda-pc$ sam logs -n HelloWorldFunction --stack-name sam-lambda-pc --tail
 ```
 
 You can find more information and examples about filtering Lambda function logs in the [SAM CLI Documentation](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-logging.html).
-
-### Tests
-
-Tests are defined in the `tests` folder in this project. Use PIP to install the test dependencies and run tests.
-
-```bash
-sam-lambda-pc$ pip install -r tests/requirements.txt --user
-# unit test
-sam-lambda-pc$ python -m pytest tests/unit -v
-# integration test, requiring deploying the stack first.
-# Create the env variable AWS_SAM_STACK_NAME with the name of the stack we are testing
-sam-lambda-pc$ AWS_SAM_STACK_NAME="sam-lambda-pc" python -m pytest tests/integration -v
-```
 
 ### Cleanup
 
